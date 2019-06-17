@@ -1,5 +1,3 @@
-{
-  "name": "shopping-list",
-  "private": true,
-  "dependencies": {}
-}
+{ "name": "shopping-list",
+"private": true,
+"dependencies": {} }

@@ -1,2 +1,1 @@
-module ListsHelper
-end
+module ListsHelper end
