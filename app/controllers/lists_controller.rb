@@ -1,10 +1,10 @@
-class ListsController < ApplicationController
+  class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+  @lists = current_user.lists
   end
 
   # GET /lists/1
@@ -14,26 +14,23 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
-    @list = List.new
+  @list = current_user.lists.new
   end
 
   # GET /lists/1/edit
-  def edit
+  def edit 
   end
 
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    @list= current_user.lists.new(list_params)
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+     return redirect_to lists_path
+
+    else
+      format.html { render :new }
     end
   end
 
@@ -64,11 +61,12 @@ class ListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list
-      @list = List.find(params[:id])
+      @user= current_user
+      @list = @user.lists.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:item, :quantity, :market, :note)
     end
-end
+  end
