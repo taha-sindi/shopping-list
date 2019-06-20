@@ -13,26 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-/* ===========Header============ */
-header { text-align: center;
-font-family: 'Times New Roman', Times, serif}   
-/* ===========Header============ */
-
-
-/* ===========Body============ */
-body { text-align: center;
-font-family: 'Times New Roman', Times, serif}
-/* ===========Body============ */
-
-
-/* ===========Body============ */
-tr { text-align: center;
-font-family: 'Times New Roman', Times, serif}
-/* ===========Body============ */
-
-
-/* ===========Footer============ */
-footer { text-align: center;
-font-family: 'Times New Roman', Times, serif}   
-/* ===========Footer============ */
